@@ -1,0 +1,20 @@
+<html>
+<head>
+  <script>
+    function httpGetAsync(url, cb) {
+      const xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+        if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+          cb(xmlHttp.responseText)
+      }
+      xmlHttp.open("GET", url, true);
+      xmlHttp.send(null);
+    }
+  </script>
+</head>
+<body>
+  <div id="element">
+    Hello, World!
+  </div>
+</body>
+</html>
