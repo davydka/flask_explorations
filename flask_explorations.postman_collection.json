@@ -29,7 +29,7 @@
 			"response": []
 		},
 		{
-			"name": "/store",
+			"name": "/stores",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -46,21 +46,21 @@
 					"raw": "{\n\t\"name\": \"another store\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5050/store",
+					"raw": "http://localhost:5050/stores",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5050",
 					"path": [
-						"store"
+						"stores"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/store/<name>",
+			"name": "/stores/<name>",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -69,14 +69,14 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:5050/store/super store",
+					"raw": "http://localhost:5050/stores/super store",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5050",
 					"path": [
-						"store",
+						"stores",
 						"super store"
 					]
 				}
@@ -84,7 +84,7 @@
 			"response": []
 		},
 		{
-			"name": "/store/<name>/items",
+			"name": "/stores/<name>/items",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -93,14 +93,14 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://localhost:5050/store/super store/items",
+					"raw": "http://localhost:5050/stores/super store/items",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5050",
 					"path": [
-						"store",
+						"stores",
 						"super store",
 						"items"
 					]
@@ -109,7 +109,7 @@
 			"response": []
 		},
 		{
-			"name": "/store/<name>/item",
+			"name": "/stores/<name>/items",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -126,16 +126,161 @@
 					"raw": "{\n\t\"name\": \"another item\",\n\t\"price\": 10.99\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5050/store/super store/item",
+					"raw": "http://localhost:5050/stores/super store/items",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5050",
 					"path": [
-						"store",
+						"stores",
 						"super store",
-						"item"
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"bob\",\n\t\"password\": \"asdf\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5050/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5050/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/items/<name>",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzQyNjg0MzAsImlhdCI6MTUzNDI2ODEzMCwibmJmIjoxNTM0MjY4MTMwLCJpZGVudGl0eSI6MX0.81u70vi82WWjIo0ekEJVIdKSrB5i7NxeHETJrWmbqDU"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5050/items/chair",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"items",
+						"chair"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/items/<name>",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"chair\",\n\t\"price\":13.99\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5050/items/chair",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"items",
+						"chair"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/items/<name>",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5050/items/<name>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"items",
+						"<name>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/items/<name>",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5050/items/<name>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"items",
+						"<name>"
 					]
 				}
 			},
