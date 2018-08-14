@@ -10,6 +10,10 @@
       xmlHttp.open("GET", url, true);
       xmlHttp.send(null);
     }
+    
+    httpGetAsync('http://localhost:5050/stores', function(data){
+      console.log(data);
+    });
   </script>
 </head>
 <body>
